@@ -164,7 +164,7 @@ class SitemapGenerator
                         }
                         continue;
                     } elseif (!isset($params['loc'])) {
-                        $params['route'] = $this->createRoute($cntr->getName(), $action);
+                        $params['route'] = [$this->createRoute($cntr->getName(), $action)];
                     }
 
                     $this->parseUrls($params);
