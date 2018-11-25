@@ -44,6 +44,6 @@ class Sitemap extends Module
     public function buildSitemap()
     {
         $sitemap = new SitemapGenerator($this->controllerDirAlias);
-        echo $sitemap->getAsXml();
+        return $sitemap->getAsXml();
     }
 }
