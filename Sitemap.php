@@ -37,12 +37,24 @@ class Sitemap extends Module
     }
 
     /**
+     * Sets xml and cache headers
+     */
+    private function setHeaders()
+    {
+        header("Content-type: text/xml");
+        header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
+        header('Pragma: no-cache');
+    }
+
+    /**
      * Build and cache a site map.
      * @return string
      * @throws \yii\base\InvalidConfigException
      */
     public function buildSitemap()
     {
+        $this->setHeaders();
+
         $sitemap = new SitemapGenerator($this->controllerDirAlias);
         return $sitemap->getAsXml();
     }
